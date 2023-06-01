@@ -1,0 +1,12 @@
+{
+  "name": "salary-calc",
+  "version": "1.0.0",
+  "description": "This app calculate salary of workers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'Fine'"
+  },
+  "keywords": ["math","calc","salary"],
+  "author": "Robert Vásquez <vasquezrober09@gmail.com>",
+  "license": "MIT"
+}
