@@ -3,12 +3,11 @@
  * @returns average
  */
 function calculateAverage(list) {
-
   // Variables of values of list
   let sumList = 0;
 
   // Sum elements of list
-  for(let i = 0; i < list.length; i++){
+  for (let i = 0; i < list.length; i++) {
     sumList = sumList + list[i];
   }
 
@@ -20,7 +19,6 @@ function calculateAverage(list) {
 
   // return result
   return average;
-
 }
 
 /**
@@ -28,7 +26,6 @@ function calculateAverage(list) {
  * @returns average
  */
 function calculateAverageWithReduce(list) {
-
   // Sum All Elements
   function sumAllElements(allValue, newValue) {
     return allValue + newValue;
@@ -45,5 +42,31 @@ function calculateAverageWithReduce(list) {
 
   // Return Average Value
   return average;
+}
 
+/**
+ * Order list function
+ * @return list
+ */
+function orderList(disorderedList) {
+  function orderListSort(accumulatedValue, newValue) {
+    // if (accumulatedValue > newValue) {
+    //   return 1;
+    // } else if (accumulatedValue == newValue) {
+    //   return 0;
+    // } else if (accumulatedValue < newValue) {
+    //   return -1;
+    // }
+
+    return accumulatedValue - newValue;
+    // return newValue - accumulatedValue;
+    // return 5 - 10 -> -5;
+    // return 5 - 5 -> 0;
+    // return 10 - 5 -> 5;
+  }
+
+  // const list = disorderedList.sort(orderListSort);
+  const list = disorderedList.sort((a, b) => a - b);
+
+  return list;
 }
