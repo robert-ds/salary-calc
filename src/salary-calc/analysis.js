@@ -1,6 +1,7 @@
 /**
  * Find person in salarys array
- * @returns {object} person
+ * @param {string} findPerson
+ * @return {object} person
  */
 function findPerson(findPerson) {
   // Find person in salarys array
@@ -9,7 +10,8 @@ function findPerson(findPerson) {
 
 /**
  * Calculate Median Salary of person
- * @returns {number} median
+ * @param {string} personName
+ * @return {number} median
  */
 function medianPerPerson(personName) {
   // Find person in salarys array
@@ -24,7 +26,8 @@ function medianPerPerson(personName) {
 
 /**
  * Calculate projection of salary
- * @returns {number} newSalary
+ * @param {string} PersonName
+ * @return {number} newSalary
  */
 function projectionPerPerson(PersonName) {
   // Find person in salarys array
@@ -45,20 +48,46 @@ function projectionPerPerson(PersonName) {
   return newSalary;
 }
 
-//
+// Create object of companys
 const companys = {};
 
+// Create object of person
 for (person of salarys) {
+  // Create object of jobs
   for (job of person.jobs) {
+    // Validate if exists companys
     if (!companys[job.company]) {
       companys[job.company] = {};
     }
 
+    // Validate year
     if (!companys[job.company][job.year]) {
       companys[job.company][job.year] = [];
     }
 
+    // Add salary to companys
     companys[job.company][job.year].push(job.salary);
   }
 }
 console.log(companys);
+
+/**
+ * Calculate Median Salary of company
+ * @param {string} name
+ * @param {number} year
+ * @return {number} median
+ */
+function calculateMedianPerCompany(name, year) {
+  // Validate if exists company
+  if (!companys[name]) {
+    console.warn("The company not exists");
+
+    // Validate if exists year
+  } else if (!companys[name][year]) {
+    console.warn("The company did not give salary that year");
+  } else {
+    // Calculate median per year
+    const salarys = companys[name][year];
+    return PlatziMath.calculateMedian(salarys);
+  }
+}
